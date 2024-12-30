@@ -1,0 +1,148 @@
+ 
+
+<ion-header style="background-color: #dc3257 !important;">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="defaultHref"  (click)="goBack()"></ion-back-button>
+    </ion-buttons>
+     {{headertext}} 
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <ion-grid class="px-2 z-1 fixed-grid w-100 position-fixed">
+    <ion-row no-padding no-margin>
+
+      <ion-col size="6">
+
+        <ion-input label="Name" [(ngModel)]="searchtext" id="Title" name="Title"
+                   label-placement="floating" fill="outline"
+                   placeholder="Name"></ion-input>
+
+
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-input label="House No" [(ngModel)]="houstext" id="houstext" name="houstext"
+                   label-placement="floating" fill="outline"
+                   placeholder="House No"></ion-input>
+
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding no-margin>
+
+      <ion-col size="6">
+
+        <ion-input label="Father name" [(ngModel)]="fathertext" id="Title" name="Title"
+                   label-placement="floating" fill="outline"
+                   placeholder=" Father Name "></ion-input>
+
+
+      </ion-col>
+      <ion-col size="6">
+
+        <ion-input label="Voter Id NO" [(ngModel)]="fathertext" id="fathertext" name="fathertext"
+                   label-placement="floating" fill="outline"
+                   placeholder="Voter Id NO   "></ion-input>
+
+
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button (click)="filtertest()"
+                    expand="block">View</ion-button>
+
+      </ion-col>
+
+      <ion-col size="6">
+        <ion-button (click)="resetdata()"
+                    expand="block">Reset</ion-button>
+
+      </ion-col>
+    </ion-row>
+ 
+  </ion-grid>
+
+  <ion-grid>
+    <ng-container *ngIf="admissionsfilteredlist.length>0">
+      <ion-row no-padding no-margin *ngFor="let object of admissionsfilteredlist;let i= index">
+        <ion-col no-padding no-margin style="border: solid 0px #ddd;">
+          <ion-card>
+            <ion-item>
+              <ion-label>
+                <h3 style="font-size:medium">
+                  <ion-icon name="man-outline" *ngIf="object.sex==='M'"></ion-icon>
+                  <ion-icon name="woman-outline" *ngIf="object.sex==='F'"></ion-icon>{{object.EName}}
+                </h3>
+
+              </ion-label>
+
+            </ion-item>
+            <ion-item>
+              <ion-label>
+                <h3 style="font-size:medium">
+                  {{object.SlNo}}
+                </h3>
+
+              </ion-label>
+              <ion-icon name="logo-whatsapp" (click)="shareonwhatup(object)" style=" font-size: 25px  !important; margin-right: 5px !important; color: darkgreen; "></ion-icon>
+              <ion-icon name="phone-portrait-outline" (click)="shareonsms(object)" style=" font-size: 25px  !important; margin-right: 5px !important; color: darkgreen; "></ion-icon>
+              <ion-label slot="end" style="border: dashed 1px #514d4d; border-radius: 10px; padding: 5px 10px">
+                {{object.IDCardNo}}
+              </ion-label>
+            </ion-item>
+        
+            <ion-item>
+              <ion-label>
+                <h3 style="font-size:medium">
+
+                  {{object.RName}}
+                </h3>
+                Age : {{object.Age}} HouseNo : {{object.HouseNo}}
+              </ion-label>
+
+            </ion-item>
+            <ion-footer>
+              <ion-row>
+
+                <ion-col size="4" style="border: solid 1px #ddd; text-align: center; color: #072852; font-weight: bold; ">
+                  <p style="font-size: xx-small; margin: 0px !important; padding: 0px !important">Positive</p>
+                </ion-col>
+                <ion-col size="4" style="border: solid 1px #ddd; text-align: center; color: #072852; font-weight: bold; ">
+                  <p style="font-size: xx-small; margin:0px !important; padding:0px !important ">Negative</p>
+                </ion-col>
+                <ion-col size="4" style="border: solid 1px #ddd; text-align: center; color: #072852; font-weight: bold; ">
+                  <p style="font-size: xx-small; margin:0px !important; padding:0px !important ">Floating</p>
+                </ion-col>
+              </ion-row>
+            </ion-footer>
+
+          </ion-card>
+
+        </ion-col>
+      </ion-row>
+
+      <ion-infinite-scroll (ionInfinite)="onIonInfinite($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </ng-container>
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-label>
+        No of Record :{{voterlist.length}}
+
+      </ion-label>
+      <ion-label slot="end">
+        filter Record :{{admissionsfilteredlist.length}}
+      </ion-label>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

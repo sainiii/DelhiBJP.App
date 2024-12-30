@@ -1,7 +1,8 @@
 {
-  "name": "DelhiBJP.App",
+  "name": "in.jsrsolution.com",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {},
+    "cordova": {}
   },
   "type": "angular"
 }

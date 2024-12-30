@@ -1,0 +1,121 @@
+
+<ion-header style="_webkit-box-shadow:none;">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button style="color:#fff; font-size:30px ; border-radius:15px;
+      background-color:#23467c;  font-weight:600 "></ion-menu-button>
+    </ion-buttons>
+    <ion-title> </ion-title>
+    <ion-buttons slot="end">
+      <div class="right" (click)="goto('/admin/notifications')">
+        <ion-icon name="notifications-outline" style="color:#fff; font-size:30px "></ion-icon>
+
+        <a class="headerButton">
+          <span class="badge badge-danger" *ngIf="notifications > 0">{{notifications}}</span>
+        </a>
+      </div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+
+
+
+
+
+  <ion-grid class="grid1" *ngIf="authUser">
+
+    <ion-row style="text-align:center">
+      <ion-col style="text-align:center">
+        <img style="border-radius: 100px; padding: 10px; width: 160px; height: 160px; background-color: #fff;"
+             src="{{user.imageUrl}}" *ngIf="user.imageUrl  !==  null" />
+        <img style="border-radius: 100px; padding: 10px; width: 160px; height: 160px; background-color: #fff;"
+             src="../assets/avatar-1.png" *ngIf="user.imageUrl  ===  null" />
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col style="text-align:center; color:#fff;  vertical-align:central !important  ">
+        <p style="font-size: 22px; padding:0px; margin-bottom:5px; ">  Hi, {{user.FirstName}} {{user.LastName}}    </p>
+        {{user.PDetailName}}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid style="padding:0px; ">
+    <ion-row   >
+      <ion-col size="6" style="background-color: #23467c; color:#fff;">
+        <ion-label  > New & Events</ion-label>
+      </ion-col>
+      <ion-col size="6" style="background-color: #23467c; text-align:right; color:#fff;" [routerLink]="'/admin/attendance'">
+        <ion-icon name="chevron-forward-circle-outline"  ></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid style="padding:0px; margin-top:10px; ">
+    <ion-row>
+      <ion-col size="12" style="color: #23467c; font-weight: 800; ">
+        Explore
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid style="padding:0px; ">
+    <ion-row>
+      <ion-col size="12" size-xs="4">
+        <div class="stat-box">
+          <ion-icon name="finger-print-outline" style="background-color: #d8887f"
+                    [routerLink]="'/admin/attendance'"></ion-icon>
+          <p class="title">Attendance</p>
+        </div>
+      </ion-col>
+      <ion-col size="12" size-xs="4">
+        <div class="stat-box">
+          <ion-icon name="help-circle-outline" style="background-color: #86c1e9"
+                    [routerLink]="'/admin/searchvoter'"></ion-icon>
+          <p class="title">Search Voter</p>
+        </div>
+      </ion-col>
+      <ion-col size="12" size-xs="4">
+        <div class="stat-box">
+          <ion-icon name="reader-outline" style="background-color: #f8db73"
+                    (click)="goto('/admin/electionresult')"></ion-icon>
+          <p class="title">Election Result</p>
+        </div>
+      </ion-col>
+
+
+    </ion-row>
+    <ion-row>
+      <ion-col size="12" size-xs="4">
+        <div class="stat-box">
+          <ion-icon name="laptop-outline" style="background-color: #f0964a"
+                    (click)="goto('/admin/bothwise')"></ion-icon>
+          <p class="title">Both Wise</p>
+        </div>
+      </ion-col>
+      <ion-col size="12" size-xs="4">
+        <div class="stat-box">
+          <ion-icon name="stats-chart-outline" style="background-color: #73c6b6"
+                    (click)="goto('/admin/voterregistratoin')"></ion-icon>
+          <p class="title">Voter Registration</p>
+        </div>
+      </ion-col>
+      <ion-col size="12" size-xs="4">
+        <div class="stat-box">
+          <ion-icon name="extension-puzzle" style="background-color: #c29bd2"
+                    (click)="goto('/admin/shaktiKendera')"></ion-icon>
+          <p class="title">Shakti Kendera</p>
+        </div>
+      </ion-col>
+
+
+
+    </ion-row>
+
+
+
+
+
+  </ion-grid>
+</ion-content>

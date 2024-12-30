@@ -1,0 +1,46 @@
+<app-page-header   [headerTitle]="'Both Wise'"></app-page-header>
+
+<ion-content [fullscreen]="true">
+  <app-geo-master [showvalue]="4" (myGEOID)="GetIdData($event)"></app-geo-master>
+         
+ 
+            <ion-grid>
+              <ion-row style="border: solid 1px #ddd; margin-bottom: 10px; " no-padding no-margin *ngFor="let object of boothwisefilteredlist;let i= index"
+              (click)="filtertest(object)"
+              >
+                <ion-col size="3" style=" vertical-align: middle; padding-top: 15px;   background-color: blanchedalmond; text-align: center;">
+                  <span style="color:#ff0000; font-weight:bold">     बूथ संख्या</span> 
+                  <br> <span style="font-size: 30px;">{{object.Partno}}</span>  
+                </ion-col>
+                <ion-col size="9">
+                  <ion-grid>
+                    <ion-row>
+                    <ion-col>कुल मतदाता : {{object.Noofboot}}
+                    </ion-col>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col>  कुल पुरुष : {{object.MaleCount}}
+                      </ion-col>
+                      <ion-col>कुल महिला : {{object.FemaleCount}}
+                      </ion-col>
+                      </ion-row>
+                  </ion-grid>
+ 
+                </ion-col>
+              </ion-row>
+             
+            </ion-grid>
+          
+
+ 
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-item style="text-align:center">
+      <ion-label>
+        <span style="color:#ff0000; font-weight:bold">  कुल  बूथ संख्या :</span> {{boothwisefilteredlist.length}}
+      </ion-label>
+
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

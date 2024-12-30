@@ -1,0 +1,41 @@
+
+
+.grid1 {
+  padding-bottom: 2%;
+  background-color: #dc3257;
+  border-top: 1px #dc3257 solid;
+}
+
+.toolbar-background {
+  border-bottom: 1px #dc3257 solid !important;
+  background-color: #dc3257 !important;
+}
+
+.stat-box {
+  vertical-align: middle;
+  text-align: center;
+  // box-shadow: none !important;
+}
+
+.stat-box ion-icon {
+  text-align: center;
+  color: #fff;
+  padding: 10px;
+  font-size: 42px;
+  vertical-align: middle;
+  border-radius: 10px;
+  // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+}
+
+.title {
+  font-size: 10px;
+  color: #000;
+  font-weight: 600;
+  margin: 5px 0 0 0;
+}
+
+
+.header-md {
+  -webkit-box-shadow: 0 0px 0px -0px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0px 0px -0px rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 0px 0px 0 rgba(0, 0, 0, 0.12);
+}

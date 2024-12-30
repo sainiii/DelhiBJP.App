@@ -1,0 +1,43 @@
+<app-page-header [headerTitle]="'मतदान स्थलों की सूची'"></app-page-header>
+
+
+
+<ion-content [fullscreen]="true">
+  <app-geo-master [showvalue]="4" (myGEOID)="GetIdData($event)"></app-geo-master>
+   
+          <ion-grid  style="border: solid 1px #ddd;  margin: 0px 10px 5px 10px; " 
+           *ngFor="let object of saktikandrfilteredlist;let i= index"
+           (click)="filtertest(object)"           >
+           
+            <ion-row no-padding no-margin >
+              <ion-col size="4" no-padding no-margin>
+                <span style="color:#ff0000; font-weight:bold">     मतदान केन्द्र</span>
+              </ion-col>
+              <ion-col size="8" no-padding no-margin>
+                <b>     {{object.VPollingboothName}}</b>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="4" no-padding no-margin>
+                <span style="color:#0768d0; font-weight:bold">     कुल बूथ:    {{object.Noofboot}}   </span>
+              </ion-col>
+              <ion-col size="8" no-padding no-margin>
+                <span style="color:#ff6a00; font-weight:bold">  कुल मतदाता : </span>
+                <b>{{object.NoofVoter}}</b>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+ 
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-item style="text-align:center">
+      <ion-label>
+        <span style="color:#ff0000; font-weight:bold">  कुल मतदाता केन्द्र :</span> {{saktikandrfilteredlist.length}}
+
+      </ion-label>
+
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

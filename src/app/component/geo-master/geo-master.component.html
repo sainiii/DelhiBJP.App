@@ -1,0 +1,66 @@
+
+
+<ion-grid>
+
+  <ion-row *ngIf="showvalue>1">
+    <ion-col>
+      <ion-select label="State" label-placement="floating" fill="outline" (ionChange)="getdistrictlist(selectedState)"
+                  [(ngModel)]="selectedState" placeholder="Select State" id="StateFilter" name="StateFilter">
+        <ion-select-option [value]="null">All State</ion-select-option>
+        <ion-select-option *ngFor="let list of statelist; let i = index" [value]="list.StateId">
+          {{list.SName}}
+        </ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+
+  <ion-row *ngIf="showvalue>2">
+    <ion-col>
+      <ion-select label="District" label-placement="floating" fill="outline" (ionChange)="getcitylist(selectedDistrict)"
+                  [(ngModel)]="selectedDistrict" placeholder="Select District" id="districtid" name="districtid">
+        <ion-select-option [value]="null">Select District</ion-select-option>
+        <ion-select-option *ngFor="let list of districtlist; let i = index" [value]="list.DID">
+          {{list.DName}}
+        </ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="showvalue>3">
+    <ion-col>
+      <ion-select label="City" label-placement="floating" fill="outline" (ionChange)="getlocationlist(selectedCity)"
+                  [(ngModel)]="selectedCity" placeholder="Select City" id="cityid" name="cityid">
+        <ion-select-option [value]="null">Select City</ion-select-option>
+        <ion-select-option *ngFor="let list of citylist; let i = index" [value]="list.CityID">
+          {{list.CityName}}
+        </ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="showvalue>4">
+    <ion-col>
+      <ion-select label="Locality" label-placement="floating" fill="outline" (ionChange)="getlocationid(selectedLocaiton)"
+                  [(ngModel)]="selectedLocaiton" placeholder="Select Location" id="locationid" name="locationid">
+        <ion-select-option [value]="null">Select Location</ion-select-option>
+        <ion-select-option *ngFor="let list of locationlist; let i = index" [value]="list.LID">
+          {{list.LName}}
+        </ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="showvalue>5">
+    <ion-col>
+      <ion-select label=" Sector and Block" label-placement="floating" fill="outline"
+                  (ionChange)="getsectorBlocklistid(selectedBID)"
+                  [(ngModel)]="selectedBID"
+                  placeholder="Select  Sector and Block"  >
+        <ion-select-option [value]="null">Select  Sector and Block</ion-select-option>
+        <ion-select-option *ngFor="let list of sectorBlocklist; let i = index" [value]="list.BID">
+          {{list.BName}}
+        </ion-select-option>
+      </ion-select>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+
